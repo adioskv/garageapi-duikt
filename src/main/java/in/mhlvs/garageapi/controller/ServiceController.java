@@ -4,6 +4,7 @@ import in.mhlvs.garageapi.DTO.ServiceDTO;
 import in.mhlvs.garageapi.entity.ServiceEntity;
 import in.mhlvs.garageapi.mapper.ServiceMapper;
 import in.mhlvs.garageapi.repository.ServiceRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.stream.StreamSupport;
 @RestController
 @RequestMapping("/api/services")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class ServiceController {
     private final ServiceRepository serviceRepository;
     private final ServiceMapper serviceMapper;

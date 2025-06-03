@@ -4,6 +4,7 @@ import in.mhlvs.garageapi.DTO.AppointmentDTO;
 import in.mhlvs.garageapi.entity.AppointmentEntity;
 import in.mhlvs.garageapi.mapper.AppointmentMapper;
 import in.mhlvs.garageapi.repository.AppointmentRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/appointments")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class AppointmentController {
     private final AppointmentRepository appointmentRepository;
     private final AppointmentMapper appointmentMapper;

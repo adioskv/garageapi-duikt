@@ -2,8 +2,12 @@ package in.mhlvs.garageapi.controller;
 
 import in.mhlvs.garageapi.DTO.CarDTO;
 import in.mhlvs.garageapi.entity.CarEntity;
+import in.mhlvs.garageapi.entity.UserEntity;
 import in.mhlvs.garageapi.mapper.CarMapper;
 import in.mhlvs.garageapi.repository.CarRepository;
+import in.mhlvs.garageapi.repository.UserRepository;
+import in.mhlvs.garageapi.security.JwtUtils;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,15 +20,26 @@ import java.util.stream.StreamSupport;
 @RestController
 @RequestMapping("/api/cars")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class CarController {
     private final CarRepository carRepository;
     private final CarMapper carMapper;
+    private final UserRepository userRepository;
+    private final JwtUtils jwtUtils;
 
     @PostMapping("/create")
-    public ResponseEntity<CarDTO> create(@RequestBody CarDTO dto) {
+    public ResponseEntity<CarDTO> create(@RequestBody CarDTO dto, @RequestHeader("Authorization") String authHeader) {
+        String token = authHeader.replace("Bearer ", "");
+        String username = jwtUtils.getUsernameFromJwtToken(token);
+        UserEntity owner = userRepository.findByUsername(username).orElseThrow();
+
         CarEntity entity = carMapper.toEntity(dto);
+        entity.setOwner(owner);
+
         return ResponseEntity.ok(carMapper.toDto(carRepository.save(entity)));
     }
+
+
 
     @GetMapping("/find/{id}")
     public ResponseEntity<CarDTO> get(@PathVariable UUID id) {

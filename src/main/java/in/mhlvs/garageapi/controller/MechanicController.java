@@ -4,6 +4,7 @@ import in.mhlvs.garageapi.DTO.MechanicDTO;
 import in.mhlvs.garageapi.entity.MechanicEntity;
 import in.mhlvs.garageapi.mapper.MechanicMapper;
 import in.mhlvs.garageapi.repository.MechanicRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.stream.StreamSupport;
 @RestController
 @RequestMapping("/api/mechanics")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class MechanicController {
     private final MechanicRepository mechanicRepository;
     private final MechanicMapper mechanicMapper;

@@ -4,6 +4,7 @@ import in.mhlvs.garageapi.DTO.InvoiceDTO;
 import in.mhlvs.garageapi.entity.InvoiceEntity;
 import in.mhlvs.garageapi.mapper.InvoiceMapper;
 import in.mhlvs.garageapi.repository.InvoiceRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.stream.StreamSupport;
 @RestController
 @RequestMapping("/api/invoices")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class InvoiceController {
     private final InvoiceRepository invoiceRepository;
     private final InvoiceMapper invoiceMapper;

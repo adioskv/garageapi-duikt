@@ -4,7 +4,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "in.mhlvs.garageapi")
 public class GarageapiApplication {
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.load();

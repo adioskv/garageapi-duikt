@@ -12,6 +12,9 @@ public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "username", target = "username"),
+            @Mapping(source = "role", target = "role"),
             @Mapping(source = "fullName", target = "fullName"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "password", target = "password")
@@ -19,9 +22,13 @@ public interface UserMapper {
     UserEntity toEntity(UserDTO dto);
 
     @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "username", target = "username"),
+            @Mapping(source = "role", target = "role"),
             @Mapping(source = "fullName", target = "fullName"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "password", target = "password")
     })
     UserDTO toDto(UserEntity entity);
 }
+
