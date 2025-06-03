@@ -10,20 +10,20 @@ import java.util.UUID;
 @Data
 public class AppointmentDTO {
     @Schema(description = "ID візиту")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "Час візиту")
     private LocalDateTime dateTime;
 
     @Schema(description = "Статус візиту")
-    private String status;
+    public String status;
 
     @Schema(description = "ID машини")
-    private UUID carId;
+    public UUID carId;
 
     @Schema(description = "ID механіка")
-    private UUID mechanicId;
+    public UUID mechanicId;
 
     @Schema(description = "Список ID сервісів")
-    private List<UUID> serviceIds;
+    public List<UUID> serviceIds;
 }

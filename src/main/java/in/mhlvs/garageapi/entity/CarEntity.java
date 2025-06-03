@@ -28,8 +28,4 @@ public class CarEntity {
     @ManyToOne
     @Schema(description = "Власник автомобіля")
     private UserEntity owner;
-
-    @OneToMany(mappedBy = "car")
-    @Schema(description = "Список записів на обслуговування")
-    private List<AppointmentEntity> appointments;
 }

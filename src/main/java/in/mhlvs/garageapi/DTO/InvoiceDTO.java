@@ -8,14 +8,14 @@ import java.util.UUID;
 @Data
 public class InvoiceDTO {
     @Schema(description = "ID чеку")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "ID візиту")
-    private UUID appointmentId;
+    public UUID appointmentId;
 
     @Schema(description = "Ціна")
-    private Double amount;
+    public Double amount;
 
     @Schema(description = "Деталі")
-    private String details;
+    public String details;
 }

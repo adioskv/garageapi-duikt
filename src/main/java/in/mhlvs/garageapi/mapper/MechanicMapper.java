@@ -13,6 +13,7 @@ public interface MechanicMapper {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "specialization", target = "specialization"),
+            @Mapping(source = "appointments", target = "appointments"),
     })
     MechanicDTO toDto(MechanicEntity entity);
 }

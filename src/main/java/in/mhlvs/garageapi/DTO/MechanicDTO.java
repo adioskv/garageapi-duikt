@@ -1,18 +1,23 @@
 package in.mhlvs.garageapi.DTO;
 
+import in.mhlvs.garageapi.entity.AppointmentEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
 public class MechanicDTO {
     @Schema(description = "ID механіка")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "Ім'я механіка")
-    private String name;
+    public String name;
 
     @Schema(description = "Спеціалізація")
-    private String specialization;
+    public String specialization;
+
+    @Schema(description = "Назначення на роботу")
+    private List<AppointmentEntity> appointments;
 }

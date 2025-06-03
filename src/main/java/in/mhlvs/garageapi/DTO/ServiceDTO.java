@@ -8,11 +8,11 @@ import java.util.UUID;
 @Data
 public class ServiceDTO {
     @Schema(description = "ID сервісу")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "Назва сервісу")
-    private String name;
+    public String name;
 
     @Schema(description = "Ціна сервісу")
-    private Double cost;
+    public Double cost;
 }

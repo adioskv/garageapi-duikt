@@ -9,12 +9,16 @@ import org.mapstruct.*;
 public interface AppointmentMapper {
 
     @Mappings({
-            @Mapping(target = "car", source = "carId", qualifiedByName = "resolveCar"),
-            @Mapping(target = "mechanic", source = "mechanicId", qualifiedByName = "resolveMechanic"),
-            @Mapping(target = "services", source = "serviceIds", qualifiedByName = "resolveServices")
+            @Mapping(source = "carId", target = "car", qualifiedByName = "resolveCar"),
+            @Mapping(source = "mechanicId", target = "mechanic", qualifiedByName = "resolveMechanic"),
+            @Mapping(source = "serviceIds", target = "services", qualifiedByName = "resolveServices")
     })
     AppointmentEntity toEntity(AppointmentDTO dto);
 
-    @InheritInverseConfiguration
+    @Mappings({
+            @Mapping(source = "car.id", target = "carId"),
+            @Mapping(source = "mechanic.id", target = "mechanicId"),
+            @Mapping(source = "services", target = "serviceIds", qualifiedByName = "mapServiceEntitiesToIds")
+    })
     AppointmentDTO toDto(AppointmentEntity entity);
 }

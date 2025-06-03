@@ -9,14 +9,14 @@ import java.util.UUID;
 @Data
 public class CarDTO {
     @Schema(description = "ID автомобіля")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "Номерний знак")
     private String licensePlate;
 
     @Schema(description = "Модель автомобіля")
-    private String model;
+    public String model;
 
     @Schema(description = "ID власника")
-    private UUID ownerId;
+    public UUID ownerId;
 }

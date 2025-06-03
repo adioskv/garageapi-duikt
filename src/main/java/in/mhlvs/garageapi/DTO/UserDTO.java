@@ -1,27 +1,32 @@
 package in.mhlvs.garageapi.DTO;
 
+import in.mhlvs.garageapi.entity.CarEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
 public class UserDTO {
     @Schema(description = "ID користувача")
-    private UUID id;
+    public UUID id;
 
     @Schema(description = "Ім'я користувача")
-    private String username;
+    public String username;
 
     @Schema(description = "Роль")
-    private String role;
+    public String role;
 
     @Schema(description = "Повне ім'я")
-    private String fullName;
+    public String fullName;
 
     @Schema(description = "Email")
-    private String email;
+    public String email;
 
     @Schema(description = "Пароль")
-    private String password;
+    public String password;
+
+    @Schema(description = "Машини")
+    private List<CarEntity> cars;
 }

@@ -5,12 +5,9 @@ import in.mhlvs.garageapi.entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
-
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "username", target = "username"),
