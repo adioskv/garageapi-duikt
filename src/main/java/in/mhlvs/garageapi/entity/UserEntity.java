@@ -35,7 +35,4 @@ public class UserEntity {
 
     @Schema(description = "Пароль", example = "secure1234")
     private String password;
-
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-    private List<CarEntity> cars;
 }

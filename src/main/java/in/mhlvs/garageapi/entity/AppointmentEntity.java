@@ -22,12 +22,12 @@ public class AppointmentEntity {
 
     private String status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private CarEntity car;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private MechanicEntity mechanic;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<ServiceEntity> services;
 }

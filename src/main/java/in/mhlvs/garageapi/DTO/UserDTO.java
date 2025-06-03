@@ -26,7 +26,4 @@ public class UserDTO {
 
     @Schema(description = "Пароль")
     public String password;
-
-    @Schema(description = "Машини")
-    private List<CarEntity> cars;
 }

@@ -34,10 +34,13 @@ public class CarController {
         UserEntity owner = userRepository.findByUsername(username).orElseThrow();
 
         CarEntity entity = carMapper.toEntity(dto);
+
+        entity.setId(null);
         entity.setOwner(owner);
 
         return ResponseEntity.ok(carMapper.toDto(carRepository.save(entity)));
     }
+
 
 
 

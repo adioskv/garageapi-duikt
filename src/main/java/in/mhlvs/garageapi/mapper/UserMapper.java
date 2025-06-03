@@ -9,7 +9,6 @@ import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     @Mappings({
-            @Mapping(source = "id", target = "id"),
             @Mapping(source = "username", target = "username"),
             @Mapping(source = "role", target = "role"),
             @Mapping(source = "fullName", target = "fullName"),
@@ -24,7 +23,7 @@ public interface UserMapper {
             @Mapping(source = "role", target = "role"),
             @Mapping(source = "fullName", target = "fullName"),
             @Mapping(source = "email", target = "email"),
-            @Mapping(source = "password", target = "password")
+            @Mapping(source = "password", target = "password"),
     })
     UserDTO toDto(UserEntity entity);
 }

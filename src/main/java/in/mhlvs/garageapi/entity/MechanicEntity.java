@@ -25,7 +25,7 @@ public class MechanicEntity {
     @Schema(description = "Спеціалізація", example = "двигуни")
     private String specialization;
 
-    @OneToMany(mappedBy = "mechanic")
+    @OneToMany(mappedBy = "mechanic", fetch = FetchType.EAGER)
     @Schema(description = "Назначення на роботу")
     private List<AppointmentEntity> appointments;
 }

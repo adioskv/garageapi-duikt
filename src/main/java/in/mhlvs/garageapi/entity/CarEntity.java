@@ -1,5 +1,6 @@
 package in.mhlvs.garageapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,7 +26,8 @@ public class CarEntity {
     @Schema(description = "Модель автомобіля", example = "Toyota Corolla")
     private String model;
 
-    @ManyToOne
-    @Schema(description = "Власник автомобіля")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    @JsonIgnore
     private UserEntity owner;
 }
