@@ -2,28 +2,19 @@ package in.mhlvs.garageapi.mapper;
 
 import in.mhlvs.garageapi.DTO.AppointmentDTO;
 import in.mhlvs.garageapi.entity.AppointmentEntity;
-import in.mhlvs.garageapi.entity.CarEntity;
-import in.mhlvs.garageapi.entity.MechanicEntity;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.factory.Mappers;
+import in.mhlvs.garageapi.resolver.EntityResolver;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = EntityResolver.class)
 public interface AppointmentMapper {
-    AppointmentMapper INSTANCE = Mappers.getMapper(AppointmentMapper.class);
 
     @Mappings({
-            @Mapping(source = "carId", target = "car.id"),
-            @Mapping(source = "mechanicId", target = "mechanic.id"),
-            @Mapping(target = "services", ignore = true)
+            @Mapping(target = "car", source = "carId", qualifiedByName = "resolveCar"),
+            @Mapping(target = "mechanic", source = "mechanicId", qualifiedByName = "resolveMechanic"),
+            @Mapping(target = "services", source = "serviceIds", qualifiedByName = "resolveServices")
     })
     AppointmentEntity toEntity(AppointmentDTO dto);
 
-    @Mappings({
-            @Mapping(source = "car.id", target = "carId"),
-            @Mapping(source = "mechanic.id", target = "mechanicId"),
-            @Mapping(target = "serviceIds", ignore = true)
-    })
+    @InheritInverseConfiguration
     AppointmentDTO toDto(AppointmentEntity entity);
 }

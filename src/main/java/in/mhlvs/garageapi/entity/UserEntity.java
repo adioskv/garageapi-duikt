@@ -14,20 +14,20 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
-@Schema(description = "Пользователь системы")
+@Schema(description = "Користувач системи")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Schema(description = "ID пользователя")
+    @Schema(description = "ID користувача")
     private UUID id;
 
-    @Schema(description = "Имя пользователя (логин)", example = "ivanivanov")
+    @Schema(description = "Логін", example = "stivstiverson")
     private String username;
 
-    @Schema(description = "Роль пользователя", example = "USER")
+    @Schema(description = "Роль", example = "USER")
     private String role;
 
-    @Schema(description = "Полное имя пользователя", example = "Ivan Ivanov")
+    @Schema(description = "Повне імя користувача", example = "Ivan Ivanov")
     private String fullName;
 
     @Schema(description = "Email", example = "ivan@example.com")

@@ -7,21 +7,21 @@ import java.util.UUID;
 
 @Data
 public class UserDTO {
-    @Schema(description = "ID пользователя", example = "UUID string", accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "ID користувача")
     private UUID id;
 
-    @Schema(description = "Имя пользователя (логин)", example = "ivanivanov")
+    @Schema(description = "Ім'я користувача")
     private String username;
 
-    @Schema(description = "Роль пользователя", example = "USER", accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Роль")
     private String role;
 
-    @Schema(description = "Полное имя пользователя", example = "Ivan Ivanov")
+    @Schema(description = "Повне ім'я")
     private String fullName;
 
-    @Schema(description = "Email", example = "ivan@example.com")
+    @Schema(description = "Email")
     private String email;
 
-    @Schema(description = "Пароль", example = "secure1234")
+    @Schema(description = "Пароль")
     private String password;
 }

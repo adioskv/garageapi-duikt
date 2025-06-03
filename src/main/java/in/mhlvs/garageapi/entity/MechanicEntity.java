@@ -12,20 +12,20 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Schema(description = "Механик автосервиса")
+@Schema(description = "Механік автосервісу")
 public class MechanicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Schema(description = "Уникальный идентификатор механика", example = "e6e8e9b1-60ff-4eb3-bd12-1b8ff1b63f72")
+    @Schema(description = "ID Механіка", example = "e6e8e9b1-60ff-4eb3-bd12-1b8ff1b63f72")
     private UUID id;
 
-    @Schema(description = "Имя механика", example = "Иван Петров")
+    @Schema(description = "Ім'я механіка", example = "Стів Стіверсон")
     private String name;
 
-    @Schema(description = "Специализация", example = "двигатели")
+    @Schema(description = "Спеціалізація", example = "двигуни")
     private String specialization;
 
     @OneToMany(mappedBy = "mechanic")
-    @Schema(description = "Назначения на работу")
+    @Schema(description = "Назначення на роботу")
     private List<AppointmentEntity> appointments;
 }
