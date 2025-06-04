@@ -9,10 +9,9 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = EntityResolver.class)
 public interface CarMapper {
+    @Mapping(source = "user.id", target = "userId")
+    CarDTO toDto(CarEntity car);
 
-    @Mapping(source = "ownerId", target = "owner", qualifiedByName = "resolveUser")
+    @Mapping(source = "userId", target = "user.id")
     CarEntity toEntity(CarDTO dto);
-
-    @Mapping(source = "owner.id", target = "ownerId")
-    CarDTO toDto(CarEntity entity);
 }

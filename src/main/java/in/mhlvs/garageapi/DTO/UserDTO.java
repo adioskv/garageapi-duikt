@@ -9,13 +9,13 @@ import java.util.UUID;
 
 @Data
 public class UserDTO {
-    @Schema(description = "ID користувача")
+    @Schema(description = "ID користувача", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "Ім'я користувача")
     public String username;
 
-    @Schema(description = "Роль")
+    @Schema(description = "Роль", accessMode = Schema.AccessMode.READ_ONLY)
     public String role;
 
     @Schema(description = "Повне ім'я")
@@ -26,4 +26,7 @@ public class UserDTO {
 
     @Schema(description = "Пароль")
     public String password;
+
+    @Schema(description = "Машини юзера", accessMode = Schema.AccessMode.READ_ONLY)
+    private List<UUID> carIds;
 }

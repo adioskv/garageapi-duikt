@@ -1,5 +1,6 @@
 package in.mhlvs.garageapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
@@ -35,4 +36,9 @@ public class UserEntity {
 
     @Schema(description = "Пароль", example = "secure1234")
     private String password;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @Schema(description = "Список машин користувача")
+    private List<CarEntity> cars;
 }

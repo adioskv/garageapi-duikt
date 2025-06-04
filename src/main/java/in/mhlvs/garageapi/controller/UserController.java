@@ -88,7 +88,7 @@ public class UserController {
                 .map(user -> {
                     user.setFullName(dto.getFullName());
                     user.setEmail(dto.getEmail());
-                    user.setPassword(dto.getPassword());
+                    user.setPassword(encoder.encode(dto.getPassword()));
                     return ResponseEntity.ok(userMapper.toDto(userRepository.save(user)));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());

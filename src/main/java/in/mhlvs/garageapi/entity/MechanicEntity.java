@@ -1,5 +1,6 @@
 package in.mhlvs.garageapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,5 +28,6 @@ public class MechanicEntity {
 
     @OneToMany(mappedBy = "mechanic", fetch = FetchType.EAGER)
     @Schema(description = "Назначення на роботу")
+    @JsonManagedReference
     private List<AppointmentEntity> appointments;
 }

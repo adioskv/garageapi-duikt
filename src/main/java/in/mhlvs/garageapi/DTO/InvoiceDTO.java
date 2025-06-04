@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Data
 public class InvoiceDTO {
-    @Schema(description = "ID чеку")
+    @Schema(description = "ID чеку", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "ID візиту")

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Data
 public class ServiceDTO {
-    @Schema(description = "ID сервісу")
+    @Schema(description = "ID сервісу", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "Назва сервісу")

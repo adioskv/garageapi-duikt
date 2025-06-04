@@ -31,12 +31,12 @@ public class CarController {
     public ResponseEntity<CarDTO> create(@RequestBody CarDTO dto, @RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
         String username = jwtUtils.getUsernameFromJwtToken(token);
-        UserEntity owner = userRepository.findByUsername(username).orElseThrow();
+        UserEntity user = userRepository.findByUsername(username).orElseThrow();
 
         CarEntity entity = carMapper.toEntity(dto);
 
         entity.setId(null);
-        entity.setOwner(owner);
+        entity.setUser(user);
 
         return ResponseEntity.ok(carMapper.toDto(carRepository.save(entity)));
     }

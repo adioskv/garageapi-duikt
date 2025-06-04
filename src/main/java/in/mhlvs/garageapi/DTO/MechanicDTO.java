@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Data
 public class MechanicDTO {
-    @Schema(description = "ID механіка")
+    @Schema(description = "ID механіка", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "Ім'я механіка")
@@ -18,6 +18,6 @@ public class MechanicDTO {
     @Schema(description = "Спеціалізація")
     public String specialization;
 
-    @Schema(description = "Назначення на роботу")
+    @Schema(description = "Назначення на роботу", accessMode = Schema.AccessMode.READ_ONLY)
     private List<AppointmentEntity> appointments;
 }

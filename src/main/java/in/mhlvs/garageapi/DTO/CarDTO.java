@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 public class CarDTO {
-    @Schema(description = "ID автомобіля")
+    @Schema(description = "ID автомобіля", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "Номерний знак")
@@ -18,5 +18,5 @@ public class CarDTO {
     public String model;
 
     @Schema(description = "ID власника")
-    public UUID ownerId;
+    public UUID userId;
 }

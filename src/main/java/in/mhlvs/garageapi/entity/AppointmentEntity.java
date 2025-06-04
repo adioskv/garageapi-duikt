@@ -1,5 +1,6 @@
 package in.mhlvs.garageapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
@@ -26,6 +27,7 @@ public class AppointmentEntity {
     private CarEntity car;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private MechanicEntity mechanic;
 
     @ManyToMany(fetch = FetchType.EAGER)

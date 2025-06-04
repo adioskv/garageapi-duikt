@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Data
 public class AppointmentDTO {
-    @Schema(description = "ID візиту")
+    @Schema(description = "ID візиту", accessMode = Schema.AccessMode.READ_ONLY)
     public UUID id;
 
     @Schema(description = "Час візиту")
